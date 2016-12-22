@@ -72,3 +72,9 @@ head(full_data_activity)
 
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable
 #    for each activity and each subject.
+
+grouped_average_data <- full_data_activity %>%
+  group_by(subject, activity) %>%
+  summarise_each(funs(mean(., na.rm=TRUE)))
+
+View(grouped_average_data)
